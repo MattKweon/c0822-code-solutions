@@ -6,13 +6,14 @@ button {
 button:hover {
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
-#table-header {
+tr:nth-child(1) {
   color: white;
   background-color: black;
 }
 
-.odd-rows {
+tr:nth-child(even) {
   background-color: lightgrey;
 }
