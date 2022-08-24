@@ -1,0 +1,18 @@
+button {
+  font-size: 20px;
+  padding: 10px 32px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+#table-header {
+  color: white;
+  background-color: black;
+}
+
+.odd-rows {
+  background-color: lightgrey;
+}
