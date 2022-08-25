@@ -3,18 +3,31 @@
 }
 
 body {
+  font-family: sans-serif;
   margin: 0;
 }
 
 .container {
-  display: flex;
-  margin: 0 150px;
-  border: solid rebeccapurple;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .row {
   display: flex;
-  height: 0%;
+}
+
+.column-one-third {
+  flex-basis: calc(100% / 3);
+}
+
+.column-one-fourth {
+  flex-basis: 25%;
+}
+
+.column-two-thirds {
+  flex-basis: calc(200% / 3);
+}
+
+.characters {
+  width: 100%;
 }
