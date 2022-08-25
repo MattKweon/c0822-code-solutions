@@ -1,0 +1,67 @@
+body {
+  font-family: "Brandon Grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  src: url("BrandonGrotesque-Medium.woff2") format("woff2");
+}
+
+h1 {
+  text-align: center;
+  color: #ee6760;
+  font-size: 1rem;
+}
+
+.text-boxes {
+  font-size: 0.7rem;
+  margin: 0 450px;
+}
+
+label {
+  padding-left: 10px;
+}
+
+input[type="text"] {
+  width: 380px;
+  height: 35px;
+  margin: 3px 0;
+  border-width: px;
+  border-radius: 4px;
+  border-color: #c3c6c5;
+  border-style: solid;
+}
+
+.section1,
+.section2,
+.section3,
+.section4,
+.section5 {
+  margin: 10px 0;
+}
+
+.placeholder {
+  color: #c3c6c5;
+}
+
+#how-many-hiring {
+  width: 380px;
+  height: 30px;
+  border-width: 0.5px;
+  border-radius: 4px;
+  border-color: #c3c6c5;
+  background-color: #f3f3f3;
+}
+
+#submit-button {
+  text-align: right;
+  border-radius: 10px;
+}
+
+input[type="submit"] {
+  border: none;
+  border-radius: 15px;
+  width: 75px;
+  height: 30px;
+  background-color: #ec5d57;
+  color: white;
+  font-size: 11px;
+}
