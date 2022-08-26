@@ -1,0 +1,78 @@
+.container {
+  font-family: Karla, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/karla/v7/qkBbXvYC6trAT7RVLtyU5rZP.woff2") format("woff2");
+  unicode-range:
+    u+0000-00ff,
+    u+0131,
+    u+0152-0153,
+    u+02bb-02bc,
+    u+02c6,
+    u+02da,
+    u+02dc,
+    u+2000-206f,
+    u+2074,
+    u+20ac,
+    u+2122,
+    u+2191,
+    u+2193,
+    u+2212,
+    u+2215,
+    u+feff,
+    u+fffd;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  padding: 20px 100px;
+}
+
+.column-full {
+  text-align: center;
+
+  /* margin: 0 150px; */
+}
+
+.column-half {
+  flex-basis: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture {
+  float: left;
+}
+
+.column-content {
+  padding-top: 30px;
+}
+
+button {
+  background-color: white;
+  color: #d7625d;
+  border: 1px solid #d7625d;
+  padding: 8px 30px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  margin: 100px 0 10px;
+}
+
+p {
+  color: #777;
+  line-height: 1.5em;
+  margin: 0 150px;
+}
+
+h2 {
+  font-size: 1rem;
+
+  /* text-indent: 150px; */
+}
