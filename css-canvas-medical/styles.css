@@ -5,7 +5,8 @@ h2 {
   src: url("TiemposHeadline-Regular.woff2") format("woff2");
 }
 
-p {
+p,
+h3 {
   font-family: Avenir, sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -14,6 +15,40 @@ p {
 
 .page-one {
   margin: 0 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px -1em;
+  padding: 20px 70px;
+}
+
+.product-button,
+.implementation-button,
+.about-us-button,
+.blog-button {
+  border: none;
+  background-color: white;
+  color: #767676;
+  font-size: 0.7rem;
+  margin: 0 10px;
+}
+
+.contact-us-button {
+  color: white;
+  background-color: #2a4464;
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.7rem;
+}
+
+hr {
+  height: 1.5px;
+  background-color: #fafafa;
+  border: none;
 }
 
 .infographic {
@@ -113,11 +148,11 @@ p {
 }
 
 .company-info {
-  border: solid red;
   display: flex;
   background-color: #515350;
   color: white;
   padding: 80px;
+  justify-content: space-between;
 }
 
 .logo-image > img {
@@ -126,21 +161,25 @@ p {
 }
 
 .info-column-left {
-  border: solid blue;
   display: flex;
   flex-direction: column;
+  width: 500px;
 }
 
 .address-phone-email {
-  border: solid green;
   margin: 10px 0;
   font-size: 0.7rem;
   line-height: 1.7;
 }
 
 .info-column-right {
-  border: solid yellow;
-  justify-content: end;
+  width: 180px;
+  font-size: 0.75rem;
+}
+
+.info-content {
+  font-size: 0.8rem;
+  line-height: 2.5;
 }
 
 .footer {
@@ -151,6 +190,6 @@ p {
 
 .footer-column {
   color: #767676;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   margin: 20px 10px;
 }
