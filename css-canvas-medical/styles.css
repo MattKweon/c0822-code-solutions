@@ -1,0 +1,125 @@
+h2 {
+  font-family: "Tiempos Headline", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: url("TiemposHeadline-Regular.woff2") format("woff2");
+}
+
+p {
+  font-family: Avenir, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  src: url("Avenir.woff2") format("woff2");
+}
+
+.page-one {
+  margin: 0 50px;
+}
+
+.infographic {
+  display: flex;
+  justify-content: center;
+}
+
+.infographic-image {
+  color: white;
+  background-image: url("images/hero.jpg");
+  background-color: rgb(200 200 200);
+  background-blend-mode: multiply;
+  background-size: cover;
+  width: 700px;
+  height: 350px;
+  margin: 40px 0;
+  padding-top: 20px;
+}
+
+.infographic-image > h2,
+.infographic-image > p,
+.infographic-image > button {
+  margin-left: 45px;
+}
+
+.infographic-image > p {
+  font-size: 10px;
+  line-height: 2;
+}
+
+.get-started-button {
+  color: white;
+  background-color: #2a4464;
+  width: 120px;
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.7rem;
+}
+
+.locations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 20px 0 70px;
+}
+
+.locations-header {
+  color: #767676;
+}
+
+.locations-header > h2 {
+  margin-bottom: 5px;
+}
+
+.locations-header > p {
+  color: #767676;
+  font-size: 11px;
+  font-weight: lighter;
+  line-height: 1.5;
+}
+
+.locations-content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.locations-column {
+  padding-top: 40px;
+}
+
+.locations-column > p {
+  color: #767676;
+  font-size: 13px;
+  line-height: 3;
+  margin: 0;
+}
+
+.action-call {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 80px;
+}
+
+.action-call-column > h2 {
+  color: #767676;
+  font-size: 1.1rem;
+}
+
+.action-call-column > p {
+  color: #767676;
+  font-size: 0.6rem;
+}
+
+.page-one-footer {
+  background-color: #fafafa;
+  display: flex;
+  padding-left: 70px;
+}
+
+.page-one-footer-column {
+  color: #767676;
+  font-size: 0.6rem;
+  margin: 20px 10px;
+}
