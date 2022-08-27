@@ -44,16 +44,6 @@ p {
   line-height: 2;
 }
 
-.get-started-button {
-  color: white;
-  background-color: #2a4464;
-  width: 120px;
-  height: 30px;
-  border: none;
-  border-radius: 3px;
-  font-size: 0.7rem;
-}
-
 .locations {
   display: flex;
   flex-direction: column;
@@ -94,7 +84,7 @@ p {
   margin: 0;
 }
 
-.action-call {
+.schedule {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,23 +92,64 @@ p {
   padding: 0 80px;
 }
 
-.action-call-column > h2 {
+.schedule-column > h2 {
   color: #767676;
   font-size: 1.1rem;
 }
 
-.action-call-column > p {
+.schedule-column > p {
   color: #767676;
   font-size: 0.6rem;
 }
 
-.page-one-footer {
+.get-started-button {
+  color: white;
+  background-color: #2a4464;
+  width: 120px;
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.7rem;
+}
+
+.company-info {
+  border: solid red;
+  display: flex;
+  background-color: #515350;
+  color: white;
+  padding: 80px;
+}
+
+.logo-image > img {
+  width: auto;
+  height: 20px;
+}
+
+.info-column-left {
+  border: solid blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.address-phone-email {
+  border: solid green;
+  margin: 10px 0;
+  font-size: 0.7rem;
+  line-height: 1.7;
+}
+
+.info-column-right {
+  border: solid yellow;
+  justify-content: end;
+}
+
+.footer {
   background-color: #fafafa;
   display: flex;
   padding-left: 70px;
 }
 
-.page-one-footer-column {
+.footer-column {
   color: #767676;
   font-size: 0.6rem;
   margin: 20px 10px;
