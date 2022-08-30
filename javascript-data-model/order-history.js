@@ -7,13 +7,16 @@ var orderHistory = [
     deliveredDate: new Date('2020-07-05'),
     item: [
       {
+        type: 'hardware',
         itemName: 'GameCube Controller - Super Smash Bros. Edition (Nintendo Switch)',
         returnWindowDate: new Date('2020-08-04'),
         price: 94.95
 
       },
       {
+        type: 'Book',
         itemName: 'The Art of Sql',
+        author: 'Faroult, Stephane',
         returnWindowDate: new Date('2020-08-04'),
         price: 33.99
       }
@@ -28,6 +31,7 @@ var orderHistory = [
     deliveryResult: 'Your package was delivered. It was handed directly to a resident.',
     item: [
       {
+        type: 'hardware',
         itemName: 'Gamecube Controller Adapter. Super Smash Bros Switch GameCube Adapter for Wii U, PC. Support Turbo and Vibration Features. No Driver and No Lag-GameCube Adapter',
         returnWindowDate: new Date('2020-08-05'),
         price: 15.98
@@ -43,6 +47,7 @@ var orderHistory = [
     deliveryResult: 'Your package was delivered. It was handed directly to a resident.',
     item: [
       {
+        type: 'book',
         itemName: 'The Timeless Way of Building',
         author: 'Alexander, CHristopher',
         returnWindowDate: new Date('2020-08-19'),
@@ -58,6 +63,7 @@ var orderHistory = [
     deliveredDate: new Date('2020-08-08'),
     item: [
       {
+        type: 'book',
         itemName: 'JavaScript for impatient programmers',
         author: 'Rauschmayer, Dr. Axel',
         returnWindowDate: new Date('2020-09-07'),
