@@ -1,26 +1,30 @@
 function convertMinutesToSeconds(minutes) {
   var seconds = minutes * 60;
-  console.log(seconds);
+  return seconds;
 }
-convertMinutesToSeconds(5);
+console.log(convertMinutesToSeconds(5));
 
 function greet(name) {
-  console.log('Hey ' + name);
+  var greetings = 'Hey ' + name;
+  return greetings;
 }
-greet('Beavis');
+console.log(greet('Beavis'));
 
 function getArea(width, height) {
-  console.log(width * height);
+  var area = width * height;
+  return area;
 }
-getArea(17, 42);
+console.log(getArea(17, 42));
 
 function getFirstName(person) {
-  console.log(person.firstName);
+  var firstName = person.firstName;
+  return firstName;
 }
-getFirstName({ firstName: 'Lelouche', lastName: 'Lamperouge' });
+console.log(getFirstName({ firstName: 'Lelouche', lastName: 'Lamperouge' }));
 
 function getLastElement(array) {
   var len = array.length - 1;
-  console.log(array[len]);
+  return array[len];
 }
-getLastElement(['propane', 'and', 'propane', 'accessories']);
+
+console.log(getLastElement(['propane', 'and', 'propane', 'accessories']));
