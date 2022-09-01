@@ -1,16 +1,16 @@
 /* exported getStudentNames */
 /*
-[] create an empty array for output storage
-[] loop through each object to find the name property
-[] collect the value of each name property
-[] push value of name property to output array
-[] return array
+[x] create an empty array for output storage
+[x] loop through the array to get each object
+[x] collect the value of each name property
+[x] push value of name property to output array
+[x] return array
  */
 
 function getStudentNames(students) {
   var output = [];
-  for (var name in students) {
-    output.push(students[name]);
+  for (var i = 0; i < students.length; i++) {
+    output.push(students[i].name);
   }
   return output;
 }
