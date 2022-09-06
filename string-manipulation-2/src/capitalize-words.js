@@ -10,21 +10,21 @@
 */
 
 function capitalizeWords(string) {
-  // var output = '';
-  // var eachWord = string.split(' ');
-  // var firstWord = eachWord[0][0].toUpperCase() + eachWord[0].slice(1);
-  // output += firstWord;
-  // for (var i = 1; i < eachWord.length; i++) {
-  //   var firstLetter = ' ';
-  //   for (var j = 0; j < eachWord[i].length; j++) {
-  //     if (j === 0) {
-  //       firstLetter += eachWord[i][j].toUpperCase();
-  //     } else {
-  //       firstLetter += eachWord[i][j].toLowerCase();
-  //     }
-  //     output += firstLetter;
-  //     firstLetter = '';
-  //   }
-  // }
-  // return output;
+  var output = '';
+  var eachWord = string.split(' ');
+  var firstWord = eachWord[0][0].toUpperCase() + eachWord[0].slice(1);
+  output += firstWord;
+  for (var i = 1; i < eachWord.length; i++) {
+    var firstLetter = ' ';
+    for (var j = 0; j < eachWord[i].length; j++) {
+      if (j === 0) {
+        firstLetter += eachWord[i][j].toUpperCase();
+      } else {
+        firstLetter += eachWord[i][j].toLowerCase();
+      }
+      output += firstLetter;
+      firstLetter = '';
+    }
+  }
+  return output;
 }
