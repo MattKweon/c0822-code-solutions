@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.open-modal-button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #5c70f3;
+  height: 45px;
+  width: 180px;
+  font-size: 1.4rem;
+  margin: 10px;
+}
+
+.survey-background {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 70%);
+}
+
+.row {
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-full {
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  width: 35%;
+  height: 30%;
+  padding-top: 20px;
+}
+
+.no-button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #f96161;
+  height: 40px;
+  width: 90px;
+  font-size: 1.3rem;
+  margin-top: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
