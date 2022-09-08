@@ -22,9 +22,8 @@ body {
   display: flex;
 }
 
-.column {
+.column-fifth {
   width: 20%;
-  margin: 0 1%;
 }
 
 .product-image {
