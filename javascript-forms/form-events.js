@@ -9,7 +9,7 @@ function handleBlur(event) {
 }
 
 function handleInput(event) {
-  console.log('event.target.name:', event.target.name, 'event.target.value:', event.target.value);
+  console.log('value of', event.target.name + ' ', event.target.value);
 }
 
 var $userName = document.querySelector('#user-name');
