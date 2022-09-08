@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "DM sans", sans-serif;
+  color: #e6e6e6;
+}
+
+.container {
+  width: 1055px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  color: black;
+}
+
+.row {
+  display: flex;
+}
+
+.column-fifth {
+  width: 20%;
+}
+
+.product-image {
+  width: 190px;
+  height: 300px;
+}
+
+.item-name {
+  color: black;
+}
+
+.new-price {
+  color: black;
+  background-color: #faede3;
+  border-radius: 5px;
+}
+
+p {
+  font-size: 0.7rem;
+  line-height: 2.5;
+  margin-top: -5px;
+}
