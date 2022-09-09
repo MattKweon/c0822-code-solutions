@@ -1,31 +1,28 @@
 /* exported chunk */
 /*
-[] create empty array for output
-[] create emputy array for sub arrays
-[] if array length is less than given size, return array
-[] if not, loop through the given array
-[] make another loop and set the conditon to i < size
-[]
+[x] create empty array for output
+[x] create emputy array for sub arrays
+[x] if array length is less than given size, return array
+[x] if not, loop through the given array
+[x] make another loop and set the conditon to i < size
+[x]
 */
 
-// function chunk(array, size) {
-//   debugger;
-//   var output = [];
-//   var subArray = [];
-//   if (array.length < size) {
-//     return array;
-//   }
-//   for (var i = 0; i < array.length; i++) {
-//     if (output.length < size) {
-//       for (var j = 0; j < size; j++) {
-//         subArray.push(array[j]);
-//       }
-//       output.push(subArray);
-//       if
-//       console.log(output);
-//     }
-//   }
-
-// }
-
-// console.log(chunk([1, 2, 3, 4, 5], 2));
+function chunk(array, size) {
+  var output = [];
+  var subArray = [];
+  if (array.length < size) {
+    return array;
+  }
+  for (var i = 0; i < array.length; i += size) {
+    for (var j = i; j < i + size; j++) {
+      if (j >= array.length) {
+        break;
+      }
+      subArray.push(array[j]);
+    }
+    output.push(subArray);
+    subArray = [];
+  }
+  return output;
+}
