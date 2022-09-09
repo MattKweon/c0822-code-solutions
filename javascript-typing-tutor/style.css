@@ -24,7 +24,6 @@ body {
 }
 
 span {
-  border: solid red;
   white-space: pre;
   padding: 0 0 5px;
 }
