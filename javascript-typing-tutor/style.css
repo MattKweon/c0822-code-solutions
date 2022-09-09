@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.row {
+  display: flex;
+}
+
+.col-full {
+  width: 100%;
+  margin: 150px 100px;
+  text-align: center;
+  font-family: Inconsolata, monospace;
+  letter-spacing: -4px;
+}
+
+span {
+  white-space: pre;
+  padding: 0 0 5px;
+}
+
+.underline {
+  border-bottom: solid black;
+}
+
+.underline-red {
+  border-bottom: solid red;
+}
+
+.green {
+  color: #35f035;
+}
+
+.red {
+  color: red;
+}
