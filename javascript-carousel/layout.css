@@ -1,0 +1,15 @@
+.container {
+  width: 800px;
+}
+
+.row {
+  display: flex;
+}
+
+.col-third {
+  flex-basis: calc(100% / 3);
+}
+
+.col-full {
+  width: 100%;
+}
