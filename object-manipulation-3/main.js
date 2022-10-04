@@ -50,7 +50,7 @@ function Start([playerOne, playerTwo, playerThree, playerFour], numOfCards) {
       winner = this.players[z];
     }
   }
-  console.log(winner.name);
+  console.log('winner winner chicken dinner:', winner.name);
 }
 
 Deck.prototype.createDeck = function () {
