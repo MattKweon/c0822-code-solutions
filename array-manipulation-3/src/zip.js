@@ -2,36 +2,25 @@
 /*
 [x] create an empty array and assign it to a output variable
 [x] create an empty array and assign it to a eachZip variable
-[x] write a contional to check which array is longer and create two pathways for
-   the next lines of code
-[x] start by loop through the shorter array
-[x] push the value of the element at index i from the shorter array into the
-   eachZip variable
-[x] push the value of the element at indexc i from the other array into the
-   eachZip variable
-[x] push the value of eachZip into the output
-[x] clear the eachZip variable
-[x] finish looping through the first array
-[x] return output
+[x] determine which input array is shorter and assign that to a variable
+[x] create a loop starting at var i is equal to 0 and stop once it is less than
+   the length of the shorter array
+[x] push the value of the element at index i of the first array to the eachZip variable
+[x] push the value of the element at index i of the second array to the eachZip variable
+[x] push the value of eachZip to the output variable
+[x] finish the loop and return output
 */
 
 function zip(first, second) {
   var output = [];
   var eachZip = [];
-  if (first.length <= second.length) {
-    for (var i = 0; i < first.length; i++) {
-      eachZip.push(first[i]);
-      eachZip.push(second[i]);
-      output.push(eachZip);
-      eachZip = [];
-    }
-  } else {
-    for (var j = 0; j < second.length; j++) {
-      eachZip.push(first[j]);
-      eachZip.push(second[j]);
-      output.push(eachZip);
-      eachZip = [];
-    }
+  var shorterArray = Math.min(first.length, second.length);
+
+  for (var i = 0; i < shorterArray; i++) {
+    eachZip.push(first[i]);
+    eachZip.push(second[i]);
+    output.push(eachZip);
+    eachZip = [];
   }
   return output;
 }
