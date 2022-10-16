@@ -19,15 +19,14 @@ app.get('/api/notes/:id', (req, res) => {
   if (Math.sign(req.params.id) !== 1) {
     errorMsg.error = 'id must be a positive integer';
     res.status(400).json(errorMsg);
+  } else if (!notes[req.params.id]) {
+    errorMsg.error = `cannot find note with id ${req.params.id}`;
+    res.status(404).json(errorMsg);
   }
   for (const key in notes) {
     if (key === req.params.id) {
       res.json(notes[key]);
     }
-  }
-  if (!notes[req.params.id]) {
-    errorMsg.error = `cannot find note with id ${req.params.id}`;
-    res.status(404).json(errorMsg);
   }
 });
 
