@@ -34,3 +34,11 @@ app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('Port 3000 is serving!');
 });
+
+app.post('/api/notes', (req, res) => {
+  const errorMsg = {};
+  if (!req.body) {
+    errorMsg.error = 'content is a required field';
+    res.status(400).json(errorMsg);
+  }
+});
