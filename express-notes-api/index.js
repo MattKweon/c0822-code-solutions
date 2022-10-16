@@ -25,10 +25,10 @@ app.get('/api/notes/:id', (req, res) => {
       res.json(notes[key]);
     }
   }
-  // if (!notes[req.params.id]) {
-  //   errorMsg.error = `cannot find note with id ${req.params.id}`;
-  //   res.status(404).json(errorMsg);
-  // }
+  if (!notes[req.params.id]) {
+    errorMsg.error = `cannot find note with id ${req.params.id}`;
+    res.status(404).json(errorMsg);
+  }
 });
 
 app.listen(3000, () => {
