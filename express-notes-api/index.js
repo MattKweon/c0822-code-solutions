@@ -73,21 +73,51 @@ app.delete('/api/notes/:id', (req, res) => {
   } else if (!notes[req.params.id]) {
     errorMsg.error = `cannot find note with id ${req.params.id}`;
     res.status(404).json(errorMsg);
-  }
-  fs.readFile('data.json', 'utf8', (err, data) => {
-    if (err) {
-      errorMsg.error = 'An unexpected error occured.';
-      res.status(500).json(errorMsg);
-    }
-    const newFile = JSON.parse(data);
-    for (const key in newFile.notes) {
-      if (key === req.params.id) {
-        delete newFile.notes[key];
+  } else {
+    fs.readFile('data.json', 'utf8', (err, data) => {
+      if (err) {
+        errorMsg.error = 'An unexpected error occured.';
+        res.status(500).json(errorMsg);
+      } else {
+        res.status(204).send();
+        const newFile = JSON.parse(data);
+        for (const key in newFile.notes) {
+          if (key === req.params.id) {
+            delete newFile.notes[key];
+          }
+        }
+        fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
+          if (err) throw err;
+        });
       }
-    }
-    fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
-      if (err) throw err;
     });
-    res.status(204);
-  });
+  }
 });
+
+// app.put('/api/notes/:id', (req, res) => {
+//   const errorMsg = {};
+//   if (Math.sign(req.params.id) !== 1) {
+//     errorMsg.error = 'id must be a positive integer';
+//     res.status(400).json(errorMsg);
+//   } else if (!req.body) {
+//     errorMsg.error = 'content is a required field';
+//     res.status(400).json(errorMsg);
+//   } else {
+//     fs.readFile('data.json', 'utf8', (err, data) => {
+//       if (err) {
+//         errorMsg.error = 'An unexpected error occured.';
+//         res.status(500).json(errorMsg);
+//       } else {
+//         const newFile = JSON.parse(data);
+//         for (const key in newFile.notes) {
+//           if (key === req.params.id) {
+//             delete newFile.notes[key];
+//           }
+//         }
+//         fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
+//           if (err) throw err;
+//         });
+//         res.status(204);
+//       }
+//   });
+// });
