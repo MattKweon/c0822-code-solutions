@@ -6,6 +6,8 @@ const data = require('./data');
 
 const notes = data.notes;
 
+const fs = require('fs');
+
 app.get('/api/notes', (req, res) => {
   const output = [];
   for (const key in notes) {
@@ -35,10 +37,30 @@ app.listen(3000, () => {
   console.log('Port 3000 is serving!');
 });
 
+app.use(express.json());
+
 app.post('/api/notes', (req, res) => {
   const errorMsg = {};
   if (!req.body) {
     errorMsg.error = 'content is a required field';
     res.status(400).json(errorMsg);
+  } else {
+    fs.readFile('data.json', 'utf8', (err, data) => {
+      if (err) {
+        errorMsg.error = 'An unexpected error occured.';
+        res.status(500).json(errorMsg);
+      } else {
+        req.body.id = data.nextId;
+        res.status(201).json(req.body);
+        const newFile = JSON.parse(data);
+        newFile.notes[`${newFile.nextId}`] = req.body;
+        newFile.nextId++;
+        fs.writeFile('derp/data.json', JSON.stringify(newFile, null, 2), err => {
+          if (err) throw err;
+        });
+      }
+    });
+    notes[data.nextId] = req.body;
+    data.nextId++;
   }
 });
