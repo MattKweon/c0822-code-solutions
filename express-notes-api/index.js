@@ -32,16 +32,11 @@ app.get('/api/notes/:id', (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  // eslint-disable-next-line no-console
-  console.log('Port 3000 is serving!');
-});
-
 app.use(express.json());
 
 app.post('/api/notes', (req, res) => {
   const errorMsg = {};
-  if (!req.body) {
+  if (Object.keys(req.body).length === 0) {
     errorMsg.error = 'content is a required field';
     res.status(400).json(errorMsg);
   } else {
@@ -50,9 +45,9 @@ app.post('/api/notes', (req, res) => {
         errorMsg.error = 'An unexpected error occured.';
         res.status(500).json(errorMsg);
       } else {
-        req.body.id = data.nextId;
-        res.status(201).json(req.body);
         const newFile = JSON.parse(data);
+        req.body.id = newFile.nextId;
+        res.status(201).json(req.body);
         newFile.notes[`${newFile.nextId}`] = req.body;
         newFile.nextId++;
         fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
@@ -94,30 +89,39 @@ app.delete('/api/notes/:id', (req, res) => {
   }
 });
 
-// app.put('/api/notes/:id', (req, res) => {
-//   const errorMsg = {};
-//   if (Math.sign(req.params.id) !== 1) {
-//     errorMsg.error = 'id must be a positive integer';
-//     res.status(400).json(errorMsg);
-//   } else if (!req.body) {
-//     errorMsg.error = 'content is a required field';
-//     res.status(400).json(errorMsg);
-//   } else {
-//     fs.readFile('data.json', 'utf8', (err, data) => {
-//       if (err) {
-//         errorMsg.error = 'An unexpected error occured.';
-//         res.status(500).json(errorMsg);
-//       } else {
-//         const newFile = JSON.parse(data);
-//         for (const key in newFile.notes) {
-//           if (key === req.params.id) {
-//             delete newFile.notes[key];
-//           }
-//         }
-//         fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
-//           if (err) throw err;
-//         });
-//         res.status(204);
-//       }
-//   });
-// });
+app.put('/api/notes/:id', (req, res) => {
+  const errorMsg = {};
+  if (Math.sign(req.params.id) !== 1) {
+    errorMsg.error = 'id must be a positive integer';
+    res.status(400).json(errorMsg);
+  } else if (Object.keys(req.body).length === 0) {
+    errorMsg.error = 'content is a required field';
+    res.status(400).json(errorMsg);
+  } else if (!notes[req.params.id]) {
+    errorMsg.error = `cannot find note with id ${req.params.id}`;
+    res.status(404).json(errorMsg);
+  } else {
+    fs.readFile('data.json', 'utf8', (err, data) => {
+      if (err) {
+        errorMsg.error = 'An unexpected error occured.';
+        res.status(500).json(errorMsg);
+      } else {
+        res.status(204).send();
+        const newFile = JSON.parse(data);
+        for (const key in newFile.notes) {
+          if (key === req.params.id) {
+            newFile.notes[key] = req.body;
+          }
+        }
+        fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
+          if (err) throw err;
+        });
+      }
+    });
+  }
+});
+
+app.listen(3000, () => {
+  // eslint-disable-next-line no-console
+  console.log('Port 3000 is serving!');
+});
