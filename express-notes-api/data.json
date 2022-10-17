@@ -13,8 +13,12 @@
       "id": 6,
       "content": "A closure is formed when a function retains access to variables in its lexical scope."
     },
-    "12": {
+    "10": {
       "content": "byeeee."
+    },
+    "12": {
+      "content": "hii.",
+      "id": 12
     }
   }
 }

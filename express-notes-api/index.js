@@ -25,11 +25,7 @@ app.get('/api/notes/:id', (req, res) => {
     errorMsg.error = `cannot find note with id ${req.params.id}`;
     res.status(404).json(errorMsg);
   }
-  for (const key in notes) {
-    if (key === req.params.id) {
-      res.json(notes[key]);
-    }
-  }
+  res.json(notes[req.params.id]);
 });
 
 app.use(express.json());
@@ -47,11 +43,14 @@ app.post('/api/notes', (req, res) => {
       } else {
         const newFile = JSON.parse(data);
         req.body.id = newFile.nextId;
-        res.status(201).json(req.body);
         newFile.notes[`${newFile.nextId}`] = req.body;
         newFile.nextId++;
         fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
-          if (err) throw err;
+          if (err) {
+            errorMsg.error = 'An unexpected error occured.';
+            res.status(500).json(errorMsg);
+          }
+          res.status(201).json(req.body);
         });
       }
     });
@@ -74,15 +73,14 @@ app.delete('/api/notes/:id', (req, res) => {
         errorMsg.error = 'An unexpected error occured.';
         res.status(500).json(errorMsg);
       } else {
-        res.status(204).send();
         const newFile = JSON.parse(data);
-        for (const key in newFile.notes) {
-          if (key === req.params.id) {
-            delete newFile.notes[key];
-          }
-        }
+        delete newFile.notes[req.params.id];
         fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
-          if (err) throw err;
+          if (err) {
+            errorMsg.error = 'An unexpected error occured.';
+            res.status(500).json(errorMsg);
+          }
+          res.status(204).send();
         });
       }
     });
@@ -106,15 +104,14 @@ app.put('/api/notes/:id', (req, res) => {
         errorMsg.error = 'An unexpected error occured.';
         res.status(500).json(errorMsg);
       } else {
-        res.status(204).send();
         const newFile = JSON.parse(data);
-        for (const key in newFile.notes) {
-          if (key === req.params.id) {
-            newFile.notes[key] = req.body;
-          }
-        }
+        newFile.notes[req.params.id] = req.body;
         fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
-          if (err) throw err;
+          if (err) {
+            errorMsg.error = 'An unexpected error occured.';
+            res.status(500).json(errorMsg);
+          }
+          res.status(204).send();
         });
       }
     });
