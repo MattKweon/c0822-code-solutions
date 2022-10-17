@@ -55,7 +55,7 @@ app.post('/api/notes', (req, res) => {
         const newFile = JSON.parse(data);
         newFile.notes[`${newFile.nextId}`] = req.body;
         newFile.nextId++;
-        fs.writeFile('derp/data.json', JSON.stringify(newFile, null, 2), err => {
+        fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
           if (err) throw err;
         });
       }
@@ -63,4 +63,31 @@ app.post('/api/notes', (req, res) => {
     notes[data.nextId] = req.body;
     data.nextId++;
   }
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+  const errorMsg = {};
+  if (Math.sign(req.params.id) !== 1) {
+    errorMsg.error = 'id must be a positive integer';
+    res.status(400).json(errorMsg);
+  } else if (!notes[req.params.id]) {
+    errorMsg.error = `cannot find note with id ${req.params.id}`;
+    res.status(404).json(errorMsg);
+  }
+  fs.readFile('data.json', 'utf8', (err, data) => {
+    if (err) {
+      errorMsg.error = 'An unexpected error occured.';
+      res.status(500).json(errorMsg);
+    }
+    const newFile = JSON.parse(data);
+    for (const key in newFile.notes) {
+      if (key === req.params.id) {
+        delete newFile.notes[key];
+      }
+    }
+    fs.writeFile('data.json', JSON.stringify(newFile, null, 2), err => {
+      if (err) throw err;
+    });
+    res.status(204);
+  });
 });
