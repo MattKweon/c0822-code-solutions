@@ -48,10 +48,11 @@ app.post('/api/grades', (req, res) => {
   }
   const sql = `
     insert into "grades" ("name", "course", "score")
-    values ('${name}', '${course}', '${score}')
+    values ($1, $2, $3)
     returning *
-    `;
-  db.query(sql)
+  `;
+  const params = [name, course, score];
+  db.query(sql, params)
     .then(result => {
       const createdGrade = result.rows[0];
       res.status(201).json(createdGrade);
@@ -83,13 +84,13 @@ app.put('/api/grades/:gradeId', (req, res) => {
   }
   const sql = `
     update "grades"
-       set "name"   = '${name}',
-           "course" = '${course}',
-           "score"  = '${score}'
+       set "name"   = $2,
+           "course" = $3,
+           "score"  = $4
      where "gradeId" = $1
      returning *
   `;
-  const params = [gradeId];
+  const params = [gradeId, name, course, score];
   db.query(sql, params)
     .then(result => {
       const grade = result.rows[0];
@@ -120,7 +121,6 @@ app.delete('/api/grades/:gradeId', (req, res) => {
   const sql = `
     delete from "grades"
     where "gradeId" = $1
-    returning *
   `;
   const params = [gradeId];
   db.query(sql, params)
