@@ -6,7 +6,7 @@ const container = document.querySelector('#root');
 const newElement = React.createElement(
   'h1',
   null,
-  ['Hello, React!']
+  'Hello, React!'
 );
 console.log(newElement);
 
