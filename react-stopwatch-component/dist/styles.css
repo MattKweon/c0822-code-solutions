@@ -1,0 +1,16 @@
+.container {
+  border: solid black;
+  border-radius: 50px;
+  height: 6rem;
+  width: 6rem;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 2.2rem;
+}
+
+i {
+  width: 3rem;
+  height: 5rem;
+}
