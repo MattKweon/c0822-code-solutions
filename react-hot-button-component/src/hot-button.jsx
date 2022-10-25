@@ -1,15 +1,15 @@
 import React from 'react';
 
-let x = 0;
 class HotButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { onClicked: x };
+    this.state = { onClicked: 0 };
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
+    let x = this.state.onClicked;
     x++;
     this.setState({ onClicked: x });
   }
