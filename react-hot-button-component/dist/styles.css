@@ -1,0 +1,29 @@
+button {
+  color: white;
+  height: 3rem;
+  width: 7rem;
+  background-color: #361c74;
+}
+
+.lvl-2 {
+  background-color: #674ea7;
+}
+
+.lvl-3 {
+  background-color: #e06666;
+}
+
+.lvl-4 {
+  color: black;
+  background-color: #f6b26a;
+}
+
+.lvl-5 {
+  color: black;
+  background-color: #fdff00;
+}
+
+.lvl-6 {
+  color: black;
+  background-color: #ffff;
+}
