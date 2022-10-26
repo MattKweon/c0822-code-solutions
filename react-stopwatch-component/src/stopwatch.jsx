@@ -10,6 +10,7 @@ class Stopwatch extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickReset = this.handleClickReset.bind(this);
   }
 
   handleClick() {
@@ -27,6 +28,10 @@ class Stopwatch extends React.Component {
     }
   }
 
+  handleClickReset() {
+    this.setState({ count: 0 });
+  }
+
   render() {
     return (
       <div>
@@ -36,15 +41,15 @@ class Stopwatch extends React.Component {
             <div className='container'>
               <h2>{this.state.count}</h2>
             </div>
-            <i className="fa-solid fa-pause" onClick={this.handleClick}></i>
+            <i className="fa-solid fa-pause" onClick={ this.handleClick }></i>
           </div>
             )
           : (
           <div>
-            <div className='container'>
+            <div className='container' onClick={ this.handleClickReset }>
               <h2>{this.state.count}</h2>
             </div>
-            <i className="fa-solid fa-play" onClick={this.handleClick}></i>
+            <i className="fa-solid fa-play" onClick={ this.handleClick }></i>
           </div>
             )}
       </div>

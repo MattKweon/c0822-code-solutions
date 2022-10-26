@@ -3,6 +3,7 @@
   border-radius: 50px;
   height: 6rem;
   width: 6rem;
+  cursor: pointer;
 }
 
 h2 {
