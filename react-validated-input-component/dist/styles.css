@@ -1,0 +1,22 @@
+label,
+span {
+  display: block;
+}
+
+i {
+  margin-left: 0.5rem;
+}
+
+.x {
+  color: red;
+}
+
+.check {
+  color: green;
+}
+
+.empty-msg {
+  margin-top: 0.25rem;
+  color: red;
+  font-size: 0.85rem;
+}
