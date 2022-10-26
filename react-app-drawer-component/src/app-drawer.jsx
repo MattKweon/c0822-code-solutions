@@ -18,12 +18,19 @@ class AppDrawer extends React.Component {
         { this.state.onClick
           ? (
           <div>
-
+              <i className="fa-solid fa-bars" onClick={this.handleClick}></i>
+              <div className='img-container'>
+                <img src='../images/mr-fill.png' />
+              </div>
+              <div className='backdrop'></div>
           </div>
             )
           : (
           <div>
-              <i className="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-bars" onClick={ this.handleClick }></i>
+              <div className='img-container'>
+                <img src='../images/mr-fill.png'/>
+              </div>
           </div>
             )}
       </div>
