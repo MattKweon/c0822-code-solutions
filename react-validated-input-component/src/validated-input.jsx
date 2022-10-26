@@ -14,38 +14,48 @@ class ValidatedInput extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        { this.state.password
-          ? (
-          <div>
-            <form>
-              <label htmlFor='password'>Password</label>
-              <input
-                type='password'
-                id='password'
-                name='password'
-                value={ this.handlePasswordChange } />
-              <i className="check fa-solid fa-check"></i>
-            </form>
-          </div>
-            )
-          : (
-          <div>
-            <form>
-              <label htmlFor='password'>Password</label>
-              <input
-                type='password'
-                id='password'
-                name='password'
-                value={ this.handlePasswordChange } />
-                <i className="x fa-solid fa-xmark"></i>
-                <span className='empty-msg'>A password is required</span>
-            </form>
-          </div>
-            )}
-      </div>
-    );
+    if (!this.state.password) {
+      return (
+        <form>
+          <label htmlFor='password'>Password</label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            value={ this.state.password }
+            onChange={ this.handlePasswordChange } />
+          <i className="x fa-solid fa-xmark"></i>
+          <span className='empty-msg'>A password is required</span>
+        </form>
+      );
+    } else if (this.state.password.length < 8) {
+      return (
+        <form>
+          <label htmlFor='password'>Password</label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            value={ this.state.password }
+            onChange={ this.handlePasswordChange } />
+          <i className="x fa-solid fa-xmark"></i>
+          <span className='too-short-msg'>Your password is too short</span>
+        </form>
+      );
+    } else {
+      return (
+        <form>
+          <label htmlFor='password'>Password</label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            value={ this.state.password }
+            onChange={ this.handlePasswordChange } />
+          <i className="check fa-solid fa-check"></i>
+        </form>
+      );
+    }
   }
 }
 
