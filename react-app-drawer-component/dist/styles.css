@@ -7,6 +7,7 @@ body {
 }
 
 i {
+  position: absolute;
   font-size: 1.7rem;
   cursor: pointer;
   margin: 1rem;
@@ -25,4 +26,26 @@ i {
   height: 100vh;
   top: 0;
   background-color: rgb(0 0 0 / 50%);
+}
+
+.menu {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 25rem;
+  transition: margin-left 2s;
+}
+
+.content {
+  margin: 4rem 0 0 1rem;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  line-height: 2rem;
+  cursor: pointer;
 }
