@@ -17,18 +17,14 @@ class Stopwatch extends React.Component {
       clearInterval(this.state.intervalID);
       this.setState({ onClick: !this.state.onClick });
     } else {
-      let count = this.state.count;
       const intervalID = setInterval(() => {
-        this.setState({ count: count++ });
+        this.setState({ count: this.state.count + 1 });
       }, 1000);
       this.setState({
         onClick: !this.state.onClick,
         intervalID
       });
     }
-    // if (!this.state.onClick) {
-    //   clearInterval(intervalID);
-    // }
   }
 
   render() {
