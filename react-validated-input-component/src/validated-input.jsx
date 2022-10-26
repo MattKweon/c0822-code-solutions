@@ -1,5 +1,6 @@
 import React from 'react';
 
+// not working
 function checkIfPasswordValid(str) {
   const specialChar = /['!@#$%^&*()']/;
   if (/\d/.test(str) && /[A-Z]/.test(str) && specialChar.test(str)) {
@@ -51,7 +52,8 @@ class ValidatedInput extends React.Component {
           <span className='too-short-msg'>Your password is too short</span>
         </form>
       );
-    } else if (checkIfPasswordValid) {
+      // not working
+    } else if (checkIfPasswordValid(this.state.password)) {
       return (
         <form>
           <label htmlFor='password'>Password</label>
@@ -62,7 +64,7 @@ class ValidatedInput extends React.Component {
             value={this.state.password}
             onChange={this.handlePasswordChange} />
           <i className="x fa-solid fa-xmark"></i>
-          <span className='too-short-msg'>
+          <span className='missing-msg'>
             Password must include: a number, a capital letter, and a special character
           </span>
         </form>

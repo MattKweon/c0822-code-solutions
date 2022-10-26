@@ -16,7 +16,8 @@ i {
 }
 
 .empty-msg,
-.too-short-msg {
+.too-short-msg,
+.missing-msg {
   margin-top: 0.25rem;
   color: red;
   font-size: 0.85rem;
