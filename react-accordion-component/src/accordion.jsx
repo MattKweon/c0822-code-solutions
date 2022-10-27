@@ -16,3 +16,14 @@ export default class App extends React.Component {
     );
   }
 }
+
+// function HeaderList(props) {
+//   const names = props.topicNames.names;
+
+// }
+
+// const topicNames = [
+//   { id: '1', name: 'Hypertext Markup Language' },
+//   { id: '2', name: 'Cascading Style Sheets' },
+//   { id: '3', name: 'JavaScript' }
+// ]
