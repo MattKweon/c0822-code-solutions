@@ -1,4 +1,10 @@
+.headers {
+  margin: 2rem;
+}
+
 .topics {
   border: solid black;
-  background-color: grey;
+  background-color: lightgrey;
+  width: 20rem;
+  height: 3rem;
 }
