@@ -1,9 +1,9 @@
 const express = require('express');
-const path = require('node:path');
+const path = require('path');
 
 const app = express();
 
-const combinePath = path.join('public');
+const combinePath = path.join(__dirname, 'public');
 
 const expressStatic = express.static(combinePath);
 
