@@ -43,11 +43,16 @@ export default class App extends React.Component {
     */
     fetch('/api/todos', {
       method: 'POST',
-      header: 'application/json'
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newTodo)
     })
       .then(res => res.json())
       .then(data => {
-        // const copyData = [...this.state.data];
+        const copyData = [...this.state.todos];
+        const newData = copyData.concat(data);
+        this.setState({ todos: newData });
       })
       .catch(err => {
         console.error(err);
@@ -76,6 +81,11 @@ export default class App extends React.Component {
      * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
+    // const todoArray = this.state.todos;
+    // const selectedTodo = todoArray.filter(id => {
+    //   return id.todoId === todoId;
+    // });
+    // // const status = selectedTodo[0].isCompleted;
   }
 
   render() {
