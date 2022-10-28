@@ -9,21 +9,25 @@ export default class App extends React.Component {
   render() {
     return (
       <div className='headers'>
-        <div data-header-id='1' className='topics'></div>
-        <div data-header-id='2' className='topics'></div>
-        <div data-header-id='3' className='topics'></div>
+        <HeaderList topicNames={topicNames} />
       </div>
     );
   }
 }
 
-// function HeaderList(props) {
-//   const names = props.topicNames.names;
+function HeaderList(props) {
+  const names = props.topicNames;
+  const listItems = names.map(name => {
+    return <li key={name.id} className='topics'>{name.name}</li>;
+  });
+  return (
+    <ul>{ listItems }</ul>
+  );
 
-// }
+}
 
-// const topicNames = [
-//   { id: '1', name: 'Hypertext Markup Language' },
-//   { id: '2', name: 'Cascading Style Sheets' },
-//   { id: '3', name: 'JavaScript' }
-// ]
+const topicNames = [
+  { id: '1', name: 'Hypertext Markup Language' },
+  { id: '2', name: 'Cascading Style Sheets' },
+  { id: '3', name: 'JavaScript' }
+];
