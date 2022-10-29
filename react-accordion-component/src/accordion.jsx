@@ -4,11 +4,17 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { onClick: false };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    // console.log(e.target);
   }
 
   render() {
     return (
-      <div className='headers'>
+      <div className='headers' onClick={this.handleClick}>
         <HeaderList topicNames={topicNames} />
       </div>
     );
@@ -17,9 +23,13 @@ export default class App extends React.Component {
 
 function HeaderList(props) {
   const names = props.topicNames;
+  // console.log(props.topicNames);
   const listItems = names.map(name => {
-    return <li key={name.id} className='topics'>{name.name}</li>;
+    return (
+      <li key={name.id} className='topics'>{name.name}</li>
+    );
   });
+  // console.log(listItems);
   return (
     <ul>{ listItems }</ul>
   );
