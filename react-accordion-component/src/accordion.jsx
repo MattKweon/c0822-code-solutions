@@ -9,7 +9,9 @@ export default class App extends React.Component {
   }
 
   handleClick(e) {
-    // console.log(e.target);
+    if (e.target.matches('li')) {
+      // const id = e.target.getAttribute('data-id');
+    }
   }
 
   render() {
@@ -23,17 +25,14 @@ export default class App extends React.Component {
 
 function HeaderList(props) {
   const names = props.topicNames;
-  // console.log(props.topicNames);
   const listItems = names.map(name => {
     return (
-      <li key={name.id} className='topics'>{name.name}</li>
+      <li key={name.id} data-id={name.id} className='topics'>{name.name}</li>
     );
   });
-  // console.log(listItems);
   return (
     <ul>{ listItems }</ul>
   );
-
 }
 
 const topicNames = [
