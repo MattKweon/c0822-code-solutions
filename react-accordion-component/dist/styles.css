@@ -2,18 +2,25 @@ ul {
   list-style: none;
 }
 
+.hidden {
+  display: none;
+}
+
 .headers {
   margin: 2rem;
 }
 
-.topics {
+.topic-name {
   border: solid black;
   background-color: lightgrey;
   width: 20rem;
   height: 2rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.5rem 0;
 }
 
-li {
-  font-size: 1.5rem;
-  padding: 0.5rem 0 0 0.5rem;
+.topic-content {
+  border: solid black;
+  width: 20rem;
+  padding: 0.5rem;
 }
