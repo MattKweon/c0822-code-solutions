@@ -21,11 +21,12 @@ export default class App extends React.Component {
 
   render() {
     const { onClick } = this.state;
+    const className = 'topic-content';
     const itemList = accordionData.map(item => {
       return (
         <div key={item.id} className="item" onClick={this.handleClick}>
           <div data-id={item.id} className="topic-name">{item.name}</div>
-          {onClick && <div data-id={item.id} className="topic-content">{item.content}</div>}
+          {onClick && <div data-id={item.id} className={className}>{item.content}</div>}
         </div>
       );
     });
