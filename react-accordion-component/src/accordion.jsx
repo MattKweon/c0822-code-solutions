@@ -26,7 +26,7 @@ export default class App extends React.Component {
       return (
         <div key={item.id} className="item" onClick={this.handleClick}>
           <div data-id={item.id} className="topic-name">{item.name}</div>
-          {onClick && <div data-id={item.id} className={className}>{item.content}</div>}
+          {onClick && <div className={className}>{item.content}</div>}
         </div>
       );
     });
