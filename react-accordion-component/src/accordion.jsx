@@ -12,59 +12,53 @@ export default class App extends React.Component {
   }
 
   handleClick(e) {
-    if (e.target.matches('li')) {
-      // const id = e.target.getAttribute('data-id');
-    }
+    const id = e.target.getAttribute('data-id');
+    this.setState({
+      onClick: !this.state.onClick,
+      currentTab: id
+    });
   }
 
   render() {
+    const { onClick } = this.state;
+    const itemList = accordionData.map(item => {
+      return (
+        <div key={item.id} className="item" onClick={this.handleClick}>
+          <div data-id={item.id} className="topic-name">{item.name}</div>
+          {onClick && <div data-id={item.id} className="topic-content">{item.content}</div>}
+        </div>
+      );
+    });
     return (
-      <div className='headers' onClick={this.handleClick}>
-      </div>
+      <ul className="container">{itemList}</ul>
     );
   }
 }
 
-// function ListItem(props) {
-//   const value = props
-// }
-
-// function TopicList(props) {
-//   const topics = props.topicData
-//   const listItems = topics.map(item => {
-//     return (
-//       <ListItem key={item.id} topics={topicData} />
-//     )
-//   })
-//   return (
-//     <ul></ul>
-//   )
-// }
-
-// const topicData = [
-//   {
-//     id: '1',
-//     name: 'Hypertext Markup Language',
-//     content: `Hypertext Markup Language (HTML) is the standard markup
-//               language for creating web pages and wev applications. With
-//               Cascading Style Sheets (CSS) and JavaScript, it forms a
-//               triad of cornerstone technologies for the World Wide Web.`
-//   },
-//   {
-//     id: '2',
-//     name: 'Cascading Style Sheets',
-//     content: `Cascading Style Sheets (CSS) is a style sheet language used
-//               for describing the presentation of a document written in a
-//               markup language like HTML. CSS is a cornerstone technology
-//               of the World Wide Web alongside HTML and JavaScript.`
-//   },
-//   {
-//     id: '3',
-//     name: 'JavaScript',
-//     content: `JavaScript often abbreviated as JS, is a high-level,
-//               interpreted programing language that conforms to the
-//               ECMAScript specification. JavaScript has curly-bracket
-//               syntax, dynamic typing, prototype-based object-oriented,
-//               and first-class functions.`
-//   }
-// ];
+const accordionData = [
+  {
+    id: '1',
+    name: 'Hypertext Markup Language',
+    content: `Hypertext Markup Language (HTML) is the standard markup
+              language for creating web pages and wev applications. With
+              Cascading Style Sheets (CSS) and JavaScript, it forms a
+              triad of cornerstone technologies for the World Wide Web.`
+  },
+  {
+    id: '2',
+    name: 'Cascading Style Sheets',
+    content: `Cascading Style Sheets (CSS) is a style sheet language used
+              for describing the presentation of a document written in a
+              markup language like HTML. CSS is a cornerstone technology
+              of the World Wide Web alongside HTML and JavaScript.`
+  },
+  {
+    id: '3',
+    name: 'JavaScript',
+    content: `JavaScript often abbreviated as JS, is a high-level,
+              interpreted programing language that conforms to the
+              ECMAScript specification. JavaScript has curly-bracket
+              syntax, dynamic typing, prototype-based object-oriented,
+              and first-class functions.`
+  }
+];
