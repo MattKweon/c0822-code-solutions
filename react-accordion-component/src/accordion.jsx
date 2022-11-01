@@ -4,8 +4,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      onClick: false,
-      currentTab: 0
+      onClick: null,
+      isOpen: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -14,19 +14,21 @@ export default class App extends React.Component {
   handleClick(e) {
     const id = e.target.getAttribute('data-id');
     this.setState({
-      onClick: !this.state.onClick,
-      currentTab: id
+      onClick: id,
+      isOpen: true
     });
+    if (id === this.state.onClick) {
+      this.setState({ isOpen: false });
+    }
   }
 
   render() {
-    const { onClick } = this.state;
-    const className = 'topic-content';
+    const { onClick, isOpen } = this.state;
     const itemList = accordionData.map(item => {
       return (
         <div key={item.id} className="item" onClick={this.handleClick}>
           <div data-id={item.id} className="topic-name">{item.name}</div>
-          {onClick && <div className={className}>{item.content}</div>}
+          { isOpen && onClick === item.id && <div className="topic-content">{item.content}</div>}
         </div>
       );
     });
