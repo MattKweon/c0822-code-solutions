@@ -67,11 +67,13 @@ export default class App extends React.Component {
         </div>
         <div className="row">
           <div className="dot-container col-full text-center">
-            <i data-dot="0" className="fa-solid fa-square" onClick={this.handleClickDot}></i>
-            <i data-dot="1" className="fa-light fa-square" onClick={this.handleClickDot}></i>
-            <i data-dot="2" className="fa-light fa-square" onClick={this.handleClickDot}></i>
-            <i data-dot="3" className="fa-light fa-square" onClick={this.handleClickDot}></i>
-            <i data-dot="4" className="fa-light fa-square" onClick={this.handleClickDot}></i>
+            <>
+              <i data-dot="0" className="fa-solid fa-square" onClick={this.handleClickDot}></i>
+              <i data-dot="1" className="fa-light fa-square" onClick={this.handleClickDot}></i>
+              <i data-dot="2" className="fa-light fa-square" onClick={this.handleClickDot}></i>
+              <i data-dot="3" className="fa-light fa-square" onClick={this.handleClickDot}></i>
+              <i data-dot="4" className="fa-light fa-square" onClick={this.handleClickDot}></i>
+            </>
           </div>
         </div>
       </div>
@@ -106,3 +108,7 @@ const carouselImg = [
     alt: 'Jigglypuff'
   }
 ];
+
+// const progressDot = [
+//   {}
+// ];
