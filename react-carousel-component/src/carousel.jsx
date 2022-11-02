@@ -4,15 +4,31 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+      intervalId: null
     };
 
+    this.startTimer = this.startTimer.bind(this);
     this.handleClickRight = this.handleClickRight.bind(this);
     this.handleClickLeft = this.handleClickLeft.bind(this);
     this.handleClickDot = this.handleClickDot.bind(this);
   }
 
+  startTimer() {
+    clearInterval(this.state.intervalId);
+    const intervalId = setInterval(() => {
+      const currentIndex = this.state.currentIndex;
+      if (currentIndex === 4) {
+        this.setState({ currentIndex: 0 });
+      } else {
+        this.setState({ currentIndex: currentIndex + 1 });
+      }
+    }, 3000);
+    this.setState({ intervalId });
+  }
+
   handleClickRight() {
+    this.startTimer();
     const currentIndex = this.state.currentIndex;
     if (currentIndex === 4) {
       this.setState({ currentIndex: 0 });
@@ -22,6 +38,7 @@ export default class App extends React.Component {
   }
 
   handleClickLeft() {
+    this.startTimer();
     const currentIndex = this.state.currentIndex;
     if (currentIndex === 0) {
       this.setState({ currentIndex: 4 });
@@ -31,8 +48,13 @@ export default class App extends React.Component {
   }
 
   handleClickDot(e) {
+    this.startTimer();
     const id = Number(e.target.getAttribute('data-dot'));
     this.setState({ currentIndex: id });
+  }
+
+  componentDidMount() {
+    this.startTimer();
   }
 
   render() {
