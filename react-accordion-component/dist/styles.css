@@ -1,0 +1,26 @@
+ul {
+  list-style: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  margin: 2rem;
+}
+
+.topic-name {
+  border: solid black;
+  background-color: lightgrey;
+  width: 20rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.5rem 0;
+}
+
+.topic-content {
+  border: solid black;
+  width: 20rem;
+  padding: 0.5rem;
+}
