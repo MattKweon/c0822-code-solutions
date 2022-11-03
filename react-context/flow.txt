@@ -70,3 +70,21 @@ creation of the hashedPassword, if some kind of error breaks the promise chain, 
 catch method is called which calls the next method. This then sends a 500 error
 messsage back to the client. This same process happens when users enter an invalid
 or missing username and passwords.
+
+// Redirect Component //
+    If a user is on the home display and the browser crashes, the app component
+unmounts. When the browser goes back online, the App component mounts again and goes
+through the initial render process. It begins to load the auth display, however,
+since the user property of the this.context exits, the Redirect function is called
+with a prop of empty string. In the redirect.jsx module, it creates a url with and
+it checks the value of prop. In this case its an empty string, and a hash property is
+added to the url. The replace method is then called on the current window.location
+which causes the 'hashchange' event listener to fire. This updates the route property
+of the state which the newly create url and causes a rerender which takes us back
+to the home display.
+    If a user tries to manually enter the url to the home page, they will be
+redirected to the auth display. This happens becasue the user property of
+this.context currently doesn't exist. When the page mounts and renders, the home.jsx
+module checks to see of the is a user and if not it causes the Redirect function
+to run. And it essentially runs through the same process mentioned earlier but with
+different values.
