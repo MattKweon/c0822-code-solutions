@@ -1,0 +1,90 @@
+// User can sign up //
+    When a user loads the page, the index.html is created and the main.js script
+is fired. After, the index.jsx module renders the App components thats created
+in the app.jsx module. The App class is defined and it is mounted with null due
+to the this.state.isAuthorizing being true. After the mount, the
+componentDidMount function is called. The 'hashchange' event listener is created
+and the user and isAuthorizing properties of state are updated. This triggers a
+rerender and this time the Navbar and PageContainer components are created
+because the State of isAuthorizing was changed to false. In the navbar.jsx
+module, the component is defined and rendered. The PageContainer component is
+then created using the page-container.jsx module which defines and renders the
+component. The child of the PageContainer component calls the this.renderPage
+function which displays the auth page on the browser. There is a sign-up button
+in the navbar, and there is a "Register now" button on the lower left corner of
+the sign-in form. After clicking either of these buttons the 'hashchange'
+callback function is called and the route property of the this.state is updated
+and three React elements are changed: the welcome message, the achor tag, and
+the button. Then, the page is rerendered to show the updating the content on the
+page. When users input the username and password, the handleChange button is
+called, continiously rerendering the page to update the text content in the
+form. When users submit the their username and password, the handleSubmit
+function in the auth-form.jsx module is fired and the fetch method is called.
+The fetch method creates a promise that sends a POST request to the
+/api/auth/sign-up target. The server recieves the request and creates a
+hashedPassword with the argon2 function, inserts the username and password
+into the data, and sends a response message back to the client. The fetch method
+causes a rerender changing the auth display's components back to the sign-up
+view.
+
+// User can sign in //
+    If users enter a valid username and password and presses submit, the fetch
+method is called which sends a POST request to the /api/auth/sign-in target. The
+server recieves the request and checks to see if the given username and password
+is valid or not. If it is valid, the userId and hashedPassword is acquired from
+the user table in the database. The argon2 function then checks if the password
+from the database matches the password given by the user. If it matches, the
+server will send a message that includes the user token. As a result, the next
+promise in the fetch promise chain is called. In the then method, the onSignIn
+method is called passing the result from the fetch as an argument. This triggers
+the handleSignIn method on the app.jsx module because of the onSignIn prop thats
+present in the AuthForm react element in the auth.jsx module. The handleSignIn
+method adds the new token to local storage and set the states of user property.
+This causes a rerender and once we create the PageContainer component, we call the
+renderPage method. That method returns the Home component because the value of
+this.state.path is an empty string. The home.jsx module renders and returns a
+gif.
+
+// User can stay signed in (even if they refresh the page) //
+    When users refresh the page while on the home display, the page mounts and
+nothing is rendered. Then, the componentDidMount method is called and the getItem
+method grabs the key from the localStorage and that token is used to set the state
+which causes a rerender. When the components render, the renderPage function is
+called and the the Home component is return because the path is equal to an empty
+string.
+
+// User can sign out //
+    When a user clicks the sign out button, the handleSignOut method is called.
+The usr token is removed from local storage and sets the user property of state
+to null. This calls the render method and populates the all necessary components.
+When the renderPage method is called the path property of this.state.route is
+sign-in so the Auth component is returned. In the auth.jsx module, all react
+elements that are respective to the sign-in path are returned.
+
+// Handing errors in the backend //
+    When users sign up and with a missing username or password, the server responds
+with a 400 status message. Once an err is detected, the errorMiddleware function
+is called and since the err is an instance of a ClientError, it uses the class
+defined in client-error.js module to send a status and error message. During the
+creation of the hashedPassword, if some kind of error breaks the promise chain, the
+catch method is called which calls the next method. This then sends a 500 error
+messsage back to the client. This same process happens when users enter an invalid
+or missing username and passwords.
+
+// Redirect Component //
+    If a user is on the home display and the browser crashes, the app component
+unmounts. When the browser goes back online, the App component mounts again and goes
+through the initial render process. It begins to load the auth display, however,
+since the user property of the this.context exits, the Redirect component is called
+with a prop of empty string. In the redirect.jsx module, it creates a url with and
+it checks the value of prop. In this case its an empty string, and a hash property is
+added to the url. The replace method is then called on the current window.location
+which causes the 'hashchange' event listener to fire. This updates the route property
+of the state which the newly create url and causes a rerender which takes us back
+to the home display.
+    If a user tries to manually enter the url to the home page, they will be
+redirected to the auth display. This happens becasue the user property of
+this.context currently doesn't exist. When the page mounts and renders, the home.jsx
+module checks to see of the is a user and if not it causes the Redirect component
+to run. And it essentially runs through the same process mentioned earlier but with
+different values.
