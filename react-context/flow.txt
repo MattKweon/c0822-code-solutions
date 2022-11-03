@@ -75,7 +75,7 @@ or missing username and passwords.
     If a user is on the home display and the browser crashes, the app component
 unmounts. When the browser goes back online, the App component mounts again and goes
 through the initial render process. It begins to load the auth display, however,
-since the user property of the this.context exits, the Redirect function is called
+since the user property of the this.context exits, the Redirect component is called
 with a prop of empty string. In the redirect.jsx module, it creates a url with and
 it checks the value of prop. In this case its an empty string, and a hash property is
 added to the url. The replace method is then called on the current window.location
@@ -85,6 +85,6 @@ to the home display.
     If a user tries to manually enter the url to the home page, they will be
 redirected to the auth display. This happens becasue the user property of
 this.context currently doesn't exist. When the page mounts and renders, the home.jsx
-module checks to see of the is a user and if not it causes the Redirect function
+module checks to see of the is a user and if not it causes the Redirect component
 to run. And it essentially runs through the same process mentioned earlier but with
 different values.
